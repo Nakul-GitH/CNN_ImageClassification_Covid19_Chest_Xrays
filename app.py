@@ -22,19 +22,43 @@ def load_artifacts():
 model, label_encoder = load_artifacts()
 
 st.markdown("""
-<div style="
-background:linear-gradient(90deg,#0F4C81,#1E88E5);
-padding:25px;
-border-radius:12px;
-text-align:center;
-color:white;
-">
+<style>
 
-<h1>🩺 COVID-19 Chest X-Ray Classification System</h1>
+.hero-container{
+    background: linear-gradient(90deg, #0F4C81, #2196F3);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    margin-bottom: 25px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+}
 
-<h4>Deep Learning using MobileNetV2 + Keras Tuner</h4>
+.hero-title{
+    font-size:42px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.hero-subtitle{
+    font-size:20px;
+    opacity:0.95;
+}
+
+</style>
+
+<div class="hero-container">
+
+<div class="hero-title">
+🩺 COVID-19 Chest X-Ray Classification System
+</div>
+
+<div class="hero-subtitle">
+Deep Learning using <b>MobileNetV2 + Keras Tuner</b>
+</div>
 
 </div>
+
 """, unsafe_allow_html=True)
 
 st.caption("Deep Learning | MobileNetV2 + Keras Tuner")
