@@ -1,3 +1,4 @@
+
 import streamlit as st
 import numpy as np
 import pandas as pd
@@ -20,7 +21,22 @@ def load_artifacts():
 
 model, label_encoder = load_artifacts()
 
-st.title("🩺 COVID-19 Chest X-Ray Classification System")
+st.markdown("""
+<div style="
+background:linear-gradient(90deg,#0F4C81,#1E88E5);
+padding:25px;
+border-radius:12px;
+text-align:center;
+color:white;
+">
+
+<h1>🩺 COVID-19 Chest X-Ray Classification System</h1>
+
+<h4>Deep Learning using MobileNetV2 + Keras Tuner</h4>
+
+</div>
+""", unsafe_allow_html=True)
+
 st.caption("Deep Learning | MobileNetV2 + Keras Tuner")
 
 with st.sidebar:
