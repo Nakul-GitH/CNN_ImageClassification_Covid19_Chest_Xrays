@@ -229,20 +229,36 @@ if uploaded_file is not None:
                 st.caption(f"{prob * 100:.2f}%")
 
 
-
-
-
-
-
-
-
-
-
-
             results = pd.DataFrame({
                 "Disease": label_encoder.classes_,
                 "Probability (%)": np.round(probabilities * 100, 2)
             })
+
+            # ============================================
+            # Top Predictions
+            # ============================================
+
+            ranked_results = results.sort_values(
+                by="Probability (%)",
+                ascending=False
+            ).reset_index(drop=True)
+
+            medals = ["🥇", "🥈", "🥉"]
+
+            ranked_results.insert(
+                0,
+                "Rank",
+                medals[:len(ranked_results)]
+            )
+
+            st.subheader("🏆 Top Predictions")
+
+            st.dataframe(
+                ranked_results,
+                use_container_width=True,
+                hide_index=True
+            )
+
 
             st.dataframe(results, use_container_width=True, hide_index=True)
             chart = results.set_index("Disease")
