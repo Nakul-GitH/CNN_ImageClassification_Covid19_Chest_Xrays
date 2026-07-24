@@ -62,6 +62,41 @@ Deep Learning using <b>MobileNetV2 + Keras Tuner</b>
 
 """, unsafe_allow_html=True)
 
+
+# =====================================================
+# Model Performance Dashboard
+# =====================================================
+
+metric1, metric2, metric3, metric4 = st.columns(4)
+
+with metric1:
+    st.metric(
+        label="🎯 Test Accuracy",
+        value="90.91%"
+    )
+
+with metric2:
+    st.metric(
+        label="📈 ROC-AUC",
+        value="0.9884"
+    )
+
+with metric3:
+    st.metric(
+        label="🧠 Architecture",
+        value="MobileNetV2"
+    )
+
+with metric4:
+    st.metric(
+        label="🏷️ Classes",
+        value="3"
+    )
+
+st.divider()
+
+
+
 st.caption("Deep Learning | MobileNetV2 + Keras Tuner")
 
 with st.sidebar:
