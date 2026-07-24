@@ -256,12 +256,6 @@ if uploaded_file is not None:
 
             st.subheader("🏆 Top Predictions")
 
-            st.dataframe(
-                ranked_results,
-                use_container_width=True,
-                hide_index=True
-            )
-
 
             st.dataframe(results, use_container_width=True, hide_index=True)
             chart = results.set_index("Disease")
