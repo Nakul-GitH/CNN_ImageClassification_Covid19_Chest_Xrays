@@ -457,3 +457,49 @@ st.warning(
     "Disclaimer: This application is intended for educational and research purposes only. "
     "It must not be used as a substitute for professional medical diagnosis."
 )
+
+
+st.divider()
+
+st.markdown("""
+<style>
+.footer{
+    text-align:center;
+    padding:20px;
+    margin-top:20px;
+    border-top:1px solid #E6E6E6;
+    color:#666666;
+    font-size:15px;
+}
+.footer strong{
+    color:#0E4C92;
+}
+</style>
+
+<div class="footer">
+
+### 👨‍💻 Developed by <strong>Nakul Gupta</strong>
+
+<b>COVID-19 Chest X-Ray Classification using Deep Learning</b>
+
+Built using:
+
+TensorFlow • Keras • MobileNetV2 • Keras Tuner • Streamlit • Plotly
+
+---
+
+📊 Final Model:
+<b>MobileNetV2 + Keras Tuner</b>
+
+🎯 Test Accuracy:
+<b>90.91%</b>
+
+📈 ROC-AUC:
+<b>0.9884</b>
+
+---
+
+© 2026 | Educational & Research Project
+
+</div>
+""", unsafe_allow_html=True)
