@@ -120,24 +120,6 @@ with st.sidebar:
     st.write("**Optimization:** Keras Tuner")
     st.write("**Framework:** TensorFlow / Keras")
 
-    st.divider()
-
-    st.subheader("📊 Model Performance")
-
-    st.metric(
-        label="Test Accuracy",
-        value="90.91%"
-    )
-
-    st.metric(
-        label="ROC-AUC",
-        value="0.9884"
-    )
-
-    st.metric(
-        label="Classes",
-        value="3"
-    )
 
     st.divider()
 
@@ -499,7 +481,7 @@ TensorFlow • Keras • MobileNetV2 • Keras Tuner • Streamlit • Plotly
 
 ---
 
-© 2026 | Educational & Research Project
+© 2026 Nakul Gupta | Educational & Research Project
 
 </div>
 """, unsafe_allow_html=True)
