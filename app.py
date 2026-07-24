@@ -149,11 +149,11 @@ disease_info = {
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
 
-    col1, col2 = st.columns([1,1])
+    col1, col2 = st.columns([1, 1.5], gap="large")
 
     with col1:
         st.subheader("Uploaded Image")
-        st.image(image, use_container_width=True)
+        st.image(image, caption="Uploaded Chest X-ray", use_container_width=True)
 
     with col2:
         if st.button("🔍 Analyze Chest X-ray", type="primary"):
@@ -165,6 +165,9 @@ if uploaded_file is not None:
             pred_label = label_encoder.inverse_transform([pred_index])[0]
             confidence = probabilities[pred_index] * 100
             
+
+            st.subheader("🧠 AI Prediction Dashboard")
+
             # ================================
             # Prediction Result Card
             # ================================
