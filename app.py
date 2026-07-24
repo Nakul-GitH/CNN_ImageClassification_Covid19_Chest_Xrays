@@ -371,14 +371,52 @@ st.dataframe(
 )
 
 
-with st.expander("Model Details"):
-    st.markdown("""
-- **Architecture:** MobileNetV2 (Transfer Learning)
-- **Optimization:** Keras Tuner
+
+with st.expander("🔬 AI Model Information", expanded=False):
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+
+        st.markdown("### 🧠 Model Details")
+
+        st.markdown("""
+- **Architecture:** MobileNetV2
+- **Transfer Learning:** Yes
+- **Hyperparameter Tuning:** Keras Tuner
 - **Framework:** TensorFlow / Keras
-- **Image Size:** 224 × 224
-- **Classes:** 3
-""")
+- **Input Size:** 224 × 224 RGB
+- **Output Classes:** 3
+        """)
+
+    with col2:
+
+        st.markdown("### 📊 Final Performance")
+
+        st.markdown("""
+- **Test Accuracy:** 90.91%
+- **ROC-AUC Score:** 0.9884
+- **Final Model:** MobileNetV2 + Keras Tuner
+- **Deployment:** Streamlit
+- **Image Preprocessing:** MobileNetV2 preprocess_input()
+        """)
+
+    st.divider()
+
+    st.markdown("### 📚 Dataset")
+
+    st.info(
+        """
+The model was trained to classify chest X-ray images into the following categories:
+
+- 🦠 Covid
+- ✅ Normal
+- 🫁 Viral Pneumonia
+
+The final deployed model was selected after comparing multiple deep learning architectures, including Baseline CNN, Deep CNN, VGG16, ResNet50, and MobileNetV2.
+"""
+    )
+
 
 st.warning(
     "Disclaimer: This application is intended for educational and research purposes only. "
