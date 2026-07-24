@@ -164,13 +164,6 @@ if uploaded_file is not None:
             pred_index = int(np.argmax(probabilities))
             pred_label = label_encoder.inverse_transform([pred_index])[0]
             confidence = probabilities[pred_index] * 100
-
-            
-            
-            
-            
-            
-            
             
             # ================================
             # Prediction Result Card
@@ -218,17 +211,33 @@ if uploaded_file is not None:
                 """,
                 unsafe_allow_html=True
             )
-
-            
-            
-            
-            
-            
-            
-            
-            
             
             st.subheader("Class Probabilities")
+
+            # ============================================
+            # Confidence Progress Bars
+            # ============================================
+
+            st.markdown("### 📈 Confidence for Each Class")
+
+            for disease, prob in zip(label_encoder.classes_, probabilities):
+
+                st.write(f"**{disease}**")
+
+                st.progress(float(prob))
+
+                st.caption(f"{prob * 100:.2f}%")
+
+
+
+
+
+
+
+
+
+
+
 
             results = pd.DataFrame({
                 "Disease": label_encoder.classes_,
