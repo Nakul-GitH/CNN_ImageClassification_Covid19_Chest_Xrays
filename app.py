@@ -256,6 +256,11 @@ if uploaded_file is not None:
 
             st.subheader("🏆 Top Predictions")
 
+            st.dataframe(
+                ranked_results,
+                use_container_width=True,
+                hide_index=True
+            )
 
             st.dataframe(results, use_container_width=True, hide_index=True)
             chart = results.set_index("Disease")
@@ -283,7 +288,51 @@ if uploaded_file is not None:
             st.subheader("Prediction Interpretation")
             st.info(disease_info[pred_label])
 
+# =====================================================
+# Model Comparison
+# =====================================================
+
 st.divider()
+
+st.subheader("📊 Model Comparison")
+
+comparison_df = pd.DataFrame({
+
+    "Model": [
+        "Baseline CNN",
+        "Deep CNN",
+        "VGG16 Transfer Learning",
+        "ResNet50 Transfer Learning",
+        "MobileNetV2",
+        "MobileNetV2 + Keras Tuner ⭐"
+    ],
+
+    "Test Accuracy": [
+        "65.15%",
+        "-",
+        "86.36%",
+        "81.82%",
+        "89.39%",
+        "90.91%"
+    ],
+
+    "ROC-AUC": [
+        "0.8593",
+        "-",
+        "0.9866",
+        "0.9474",
+        "0.9790",
+        "0.9884"
+    ]
+
+})
+
+st.dataframe(
+    comparison_df,
+    use_container_width=True,
+    hide_index=True
+)
+
 
 with st.expander("Model Details"):
     st.markdown("""
