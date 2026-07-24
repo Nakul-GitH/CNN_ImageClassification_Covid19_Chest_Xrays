@@ -64,21 +64,58 @@ Deep Learning using <b>MobileNetV2 + Keras Tuner</b>
 st.caption("Deep Learning | MobileNetV2 + Keras Tuner")
 
 with st.sidebar:
-    st.header("Project Information")
-    st.markdown("""
-**Model:** MobileNetV2 + Keras Tuner
 
-**Dataset Classes**
-- Covid
-- Normal
-- Viral Pneumonia
+    st.header("📋 Project Overview")
 
-**Performance**
-- Test Accuracy: **90.91%**
-- ROC-AUC: **0.9884**
+    st.info(
+        """
+        **COVID-19 Chest X-ray Classification**
 
-This application is for educational and research purposes only.
-""")
+        AI-powered chest X-ray image classification using
+        Transfer Learning and Deep Learning.
+        """
+    )
+
+    st.divider()
+
+    st.subheader("🤖 Model")
+
+    st.write("**Architecture:** MobileNetV2")
+    st.write("**Optimization:** Keras Tuner")
+    st.write("**Framework:** TensorFlow / Keras")
+
+    st.divider()
+
+    st.subheader("📊 Model Performance")
+
+    st.metric(
+        label="Test Accuracy",
+        value="90.91%"
+    )
+
+    st.metric(
+        label="ROC-AUC",
+        value="0.9884"
+    )
+
+    st.metric(
+        label="Classes",
+        value="3"
+    )
+
+    st.divider()
+
+    st.subheader("🧪 Dataset Classes")
+
+    st.success("🟢 Normal")
+    st.error("🔴 Covid")
+    st.warning("🟠 Viral Pneumonia")
+
+    st.divider()
+
+    st.caption(
+        "⚠️ This application is intended for educational and research purposes only."
+    )
 
 st.write("""
 Upload a chest X-ray image in **JPG**, **JPEG**, or **PNG** format.
