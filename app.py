@@ -1,3 +1,4 @@
+
 import streamlit as st
 import numpy as np
 import pandas as pd
@@ -164,9 +165,69 @@ if uploaded_file is not None:
             pred_label = label_encoder.inverse_transform([pred_index])[0]
             confidence = probabilities[pred_index] * 100
 
-            st.success(f"### Prediction: {pred_label}")
-            st.metric("Confidence", f"{confidence:.2f}%")
+            
+            
+            
+            
+            
+            
+            
+            # ================================
+            # Prediction Result Card
+            # ================================
 
+            if pred_label == "Covid":
+                bg_color = "#fdecea"
+                border_color = "#d32f2f"
+                icon = "🦠"
+
+            elif pred_label == "Normal":
+                bg_color = "#e8f5e9"
+                border_color = "#2e7d32"
+                icon = "✅"
+
+            else:
+                bg_color = "#fff3e0"
+                border_color = "#ef6c00"
+                icon = "🫁"
+
+            st.markdown(
+                f"""
+                <div style="
+                    background-color:{bg_color};
+                    border-left:8px solid {border_color};
+                    padding:20px;
+                    border-radius:12px;
+                    box-shadow:0px 2px 8px rgba(0,0,0,0.15);
+                    margin-bottom:20px;
+                ">
+
+                <h2 style="margin:0;">
+                    {icon} Prediction Result
+                </h2>
+
+                <h1 style="margin-top:10px; color:{border_color};">
+                    {pred_label}
+                </h1>
+
+                <h3>
+                    Confidence Score: {confidence:.2f}%
+                </h3>
+
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
             st.subheader("Class Probabilities")
 
             results = pd.DataFrame({
