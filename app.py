@@ -262,7 +262,6 @@ if uploaded_file is not None:
                 hide_index=True
             )
 
-            st.dataframe(results, use_container_width=True, hide_index=True)
             chart = results.set_index("Disease")
             fig = px.bar(
                 results,
