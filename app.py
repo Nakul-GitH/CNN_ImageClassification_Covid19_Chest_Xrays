@@ -115,7 +115,26 @@ if uploaded_file is not None:
 
             st.dataframe(results, use_container_width=True, hide_index=True)
             chart = results.set_index("Disease")
-            st.bar_chart(chart)
+            fig = px.bar(
+                results,
+                x="Disease",
+                y="Probability (%)",
+                color="Probability (%)",
+                text="Probability (%)",
+                color_continuous_scale="Blues"
+            )
+
+            fig.update_traces(texttemplate="%{text:.2f}%", textposition="outside")
+
+            fig.update_layout(
+                template="plotly_white",
+                height=450,
+                title="Prediction Probability Distribution",
+                yaxis_title="Probability (%)",
+                xaxis_title=""
+            )
+
+            st.plotly_chart(fig, use_container_width=True)
 
             st.subheader("Prediction Interpretation")
             st.info(disease_info[pred_label])
